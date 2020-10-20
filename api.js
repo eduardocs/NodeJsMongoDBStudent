@@ -2,11 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-var USERS = [
-    { 'id': 1, 'username': 'brunohauck', 'password': '123456' },
-    { 'id': 2, 'username': 'eddie', 'password': '123456' },
-];
-
 var HELLO = [
     { 'msg': 'Hello Express' },
 ];
@@ -15,20 +10,15 @@ function getHello() {
     return HELLO;
 }
 
-function getUsers() {
-    return USERS;
-}
-
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
     res.send(getHello());
 });
 
+const userRouter = require('./src/routes/user-route')
+app.use('/user', userRouter);
+
 app.listen(4000, function() {
     console.log('Hello Express Listen on Port 4000');
-});
-
-app.get('/users', function(req, res) {
-    res.send(getUsers());
 });
