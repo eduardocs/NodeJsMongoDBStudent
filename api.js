@@ -24,6 +24,9 @@ app.use(bodyParser.json());
 const userRouter = require('./src/routes/user-route');
 app.use('/user', userRouter);
 
+const productRouter = require('./src/routes/product-route');
+app.use('/product', productRouter);
+
 // const productRouter = require('./src/routes/product-route');
 // app.use('/product', productRouter);
 
