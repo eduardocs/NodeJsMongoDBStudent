@@ -2,9 +2,18 @@
   "name": "backend_node_express",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev": "nodemon api.js"
+  },
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "md5": "^2.3.0",
     "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
