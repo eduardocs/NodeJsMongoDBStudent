@@ -88,14 +88,14 @@ exports.deleteUser = async(req, res, next) => {
 exports.login = async(req, res, next) => {
     try {
         console.log(req.body.password);
-        // const user = await repository.autenticate({
-        //     email: req.body.email,
-        //     password: md5(req.body.password + 'd41d8cd98f00b204e9800998ecf8427e|7aef61337bcee2fe773aa78b40afacbc')
-        // });
         const user = await repository.autenticate({
             email: req.body.email,
-            password: req.body.password
+            password: md5(req.body.password + 'd41d8cd98f00b204e9800998ecf8427e|7aef61337bcee2fe773aa78b40afacbc')
         });
+        // const user = await repository.autenticate({
+        //     email: req.body.email,
+        //     password: req.body.password
+        // });
         if (!user) {
             res.status(404).send({
                 message: 'Usuário ou senha inválidos'
